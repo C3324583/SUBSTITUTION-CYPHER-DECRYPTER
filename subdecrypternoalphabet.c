@@ -4,10 +4,9 @@
 
 int main(){
     //initialisation of variables and arrays
-	char text[1000], substitution[100];
-	int number_of_letters[27] = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0";
-	const char ALPHABET[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int n, i, x = 0, ascii;
+	char text[1000];
+	int number_of_letter[127] = {0};
+	int n, i, x, ascii, rotationey, MAX = 0;
 	
 	printf("Enter message: ");//prompts the user to imput a message
 	scanf(" %[^\n]s", text);//stores the text imputted by the user in the array "text"
@@ -26,16 +25,23 @@ int main(){
                 printf("%c", text[n]);
         }
     }
-   
+    
 	for(ascii='A'; ascii<='Z'; ascii++){
 	    for(i=0; text[i] != '\0'; i++){
 	        if(ascii==text[i]){
-	            number_of_letters[x]++;
+	            number_of_letter[ascii]++;
 	        }
         } 
-        x++;
 	}
 	
-	find greatest number in array number_of_letters and assign 
+	for (x=0; number_of_letter[x] != '\0'; x++){
+	    if(number_of_letter[x] > MAX){
+	        MAX = number_of_letter[x];
+	        common_letter = x;
+	    }
+	}
+	
+	rotationkey = common_letter - 'E';
+	
 	return 0;
 }
